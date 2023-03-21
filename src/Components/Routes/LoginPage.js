@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import OtherLogins from "../Logins.js/OtherLogins";
+
 import "../Routes/Common.css";
 
 const LoginPage = () => {
@@ -102,6 +104,9 @@ const LoginPage = () => {
             >
               Forgot Password ?
             </Link>
+          </div>
+          <div>
+            <OtherLogins></OtherLogins>
           </div>
         </Form>
       </div>
