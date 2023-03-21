@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import { NavLink, useLocation } from "react-router-dom";
+import "../Routes/Common.css";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -16,29 +17,80 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     console.log(`Username: ${username}, Password: ${password}`);
   };
 
+  const location = useLocation();
+
   return (
-    <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-      <div className="w-100" style={{ maxWidth: '400px' }}>
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
         <span className="text-center mb-4">
-        <NavLink to={'/'} className=" m-4">Login</NavLink>
-        <NavLink to={'/signUp'} className=" m-4">Sign Up</NavLink>
-
-
+          <NavLink
+            to={"/"}
+            className="m-4"
+            style={{
+              textDecoration: "none",
+              borderBottom: `3px solid ${
+                location.pathname === "/" ? "#F81894" : "transparent"
+              }`,
+              paddingBottom: "5px",
+              color:'black'
+            }}
+            exact={true}
+          >
+            Login
+          </NavLink>
+          <NavLink
+            to={"/signUp"}
+            className="m-4"
+            style={{
+              textDecoration: "none",
+              borderBottom: `4px solid ${
+                location.pathname === "/signUp" ? "#F81894" : "transparent"
+              }`,
+              paddingBottom: "5px",
+              color:'black'
+            }}
+            exact={true}
+          >
+            Sign Up
+          </NavLink>
         </span>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
-            <Form.Control type="text" placeholder="Enter username" value={username} onChange={handleUsernameChange} />
+            <Form.Control
+              type="text"
+              style={{ marginTop: "15px", borderRadius: "30px" }}
+              placeholder="Username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
           </Form.Group>
           <Form.Group controlId="formPassword">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" placeholder="Enter password" value={password} onChange={handlePasswordChange} />
+            <Form.Control
+              type="password"
+              style={{ marginTop: "15px", borderRadius: "30px" }}
+              placeholder="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
           </Form.Group>
-          <Button variant="primary" type="submit" className="w-100 mt-3">Login</Button>
+          <Button
+            style={{
+              backgroundColor: "	#F81894",
+              borderRadius: "30px",
+              borderColor: "lightpink",
+            }}
+            type="submit"
+            className="w-100 mt-3"
+          >
+            Login
+          </Button>
         </Form>
       </div>
     </Container>

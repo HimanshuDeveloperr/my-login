@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -29,6 +29,8 @@ const SignupPage = () => {
     );
   };
 
+  const location = useLocation();
+
   return (
     <Container
       className="d-flex align-items-center justify-content-center"
@@ -36,42 +38,74 @@ const SignupPage = () => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <span className="text-center mb-4">
-          <NavLink to={"/"} className=" m-4">
+          <NavLink
+            to={"/"}
+            className="m-4"
+            style={{
+              textDecoration: "none",
+              borderBottom: `3px solid ${
+                location.pathname === "/" ? "#F81894" : "transparent"
+              }`,
+              paddingBottom: "5px",
+              color:'black'
+            }}
+            exact={true}
+          >
             Login
           </NavLink>
-          <NavLink to={"/signUp"} className=" m-4">
+          <NavLink
+            to={"/signUp"}
+            className="m-4"
+            style={{
+              textDecoration: "none",
+              borderBottom: `3px solid ${
+                location.pathname === "/signUp" ? "#F81894" : "transparent"
+              }`,
+              paddingBottom: "5px",
+              color:'black'
+            }}
+            exact={true}
+          >
             Sign Up
           </NavLink>
         </span>{" "}
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
             <Form.Control
+              style={{ marginTop: "15px", borderRadius: "30px" }}
               type="text"
-              placeholder="Enter username"
+              placeholder="username"
               value={username}
               onChange={handleUsernameChange}
             />
           </Form.Group>
           <Form.Group controlId="formEmail">
-            <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              style={{ marginTop: "15px", borderRadius: "30px" }}
+              placeholder="Email"
               value={email}
               onChange={handleEmailChange}
             />
           </Form.Group>
           <Form.Group controlId="formPassword">
-            <Form.Label>Password:</Form.Label>
             <Form.Control
+              style={{ marginTop: "15px", borderRadius: "30px" }}
               type="password"
-              placeholder="Enter password"
+              placeholder="password"
               value={password}
               onChange={handlePasswordChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" className="w-100 mt-3">
+          <Button
+            style={{
+              backgroundColor: "	#F81894",
+              borderRadius: "30px",
+              borderColor: "lightpink",
+            }}
+            type="submit"
+            className="w-100 mt-3"
+          >
             Sign Up
           </Button>
         </Form>
