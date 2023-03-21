@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "../Routes/Common.css";
 
 const LoginPage = () => {
@@ -35,11 +35,11 @@ const LoginPage = () => {
             className="m-4"
             style={{
               textDecoration: "none",
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 location.pathname === "/" ? "#F81894" : "transparent"
               }`,
               paddingBottom: "5px",
-              color:'black'
+              color: "black",
             }}
             exact={true}
           >
@@ -50,11 +50,11 @@ const LoginPage = () => {
             className="m-4"
             style={{
               textDecoration: "none",
-              borderBottom: `4px solid ${
+              borderBottom: `2px solid ${
                 location.pathname === "/signUp" ? "#F81894" : "transparent"
               }`,
               paddingBottom: "5px",
-              color:'black'
+              color: "black",
             }}
             exact={true}
           >
@@ -91,6 +91,18 @@ const LoginPage = () => {
           >
             Login
           </Button>
+          <div>
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "#F81894",
+                marginLeft: "270px",
+                marginTop: "80%",
+              }}
+            >
+              Forgot Password ?
+            </Link>
+          </div>
         </Form>
       </div>
     </Container>

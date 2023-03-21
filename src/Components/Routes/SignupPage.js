@@ -43,7 +43,7 @@ const SignupPage = () => {
             className="m-4"
             style={{
               textDecoration: "none",
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 location.pathname === "/" ? "#F81894" : "transparent"
               }`,
               paddingBottom: "5px",
@@ -58,7 +58,7 @@ const SignupPage = () => {
             className="m-4"
             style={{
               textDecoration: "none",
-              borderBottom: `3px solid ${
+              borderBottom: `2px solid ${
                 location.pathname === "/signUp" ? "#F81894" : "transparent"
               }`,
               paddingBottom: "5px",
