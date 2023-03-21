@@ -35,7 +35,7 @@ const OtherLogins = () => {
       <div>
         <p>
           By signing up, you are agree with our
-          <Link style={{ color: "#F81894" }}>Terms & conditions</Link>
+          <Link style={{ color: "#F81894" }}>Terms & conditions </Link>
         </p>
       </div>
     </div>
